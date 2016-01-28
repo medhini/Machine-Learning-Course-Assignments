@@ -1,5 +1,5 @@
 import csv
-import random
+from numpy import random, dot
 import math
 import copy
 
@@ -33,48 +33,43 @@ def splitDataset(dataset, foldNumber):
 
 def simplePerceptron(trainSet):
 
-	random.seed()
+	bias = -1 * random.rand()
+	#bias = 0
+	weights = random.rand(22)
 
-	bias = random.uniform(-1,0)
-	weights = []
-
-	for i in range(0,len(trainSet[0])):
-		weights.append(random.uniform(0,1)) 
-
-	learningRate = random.uniform(0,1)
+	learningRate = random.rand()
 
 	counter = 0
 	error  = 0 
+
 	while (counter < 1000) :
+
+		counter += 1
 
 		for i in range(len(trainSet)):
 
 			temp = copy.deepcopy(trainSet[i])
 			Z = temp.pop(0)
-
 			Y = bias
 
-			for j in range(len(temp)):
-				Y = Y + (temp[j] * weights[j])
-				
+			Y += dot(temp, weights)
+			
 			if Y > 0:
 				Y = 1
 			else:
 				Y = 0
 
+			#print Y
+
 			error += abs(Z - Y)
 
-			for j in range(len(temp)):
-				weights[j] += learningRate*(Z - Y)*weights[j]
-
-		counter += 1
+			for x in xrange(len(temp)):
+				weights[x] += learningRate*(Z - Y)*temp[x]
 
 		if error == 0:
-			
 			break
-	
 
-	return (weights, bias)
+	return (weights, bias, learningRate)
 
 def testing(weights, bias, testSet, testClasses):
 
@@ -83,8 +78,8 @@ def testing(weights, bias, testSet, testClasses):
 
 		Z = testClasses[i]		
 		Y = bias
-		for j in range(len(testSet[i])):
-			Y = Y + (testSet[i][j] * weights[j])
+
+		Y += dot(testSet[i], weights)
 
 		if Y > 0:
 			Y = 0
@@ -103,7 +98,7 @@ def testing(weights, bias, testSet, testClasses):
 		if Z != Y and Y == 0 :
 			fn += 1
 	
-	#print tn, tp, fp, fn
+	print tn, tp, fp, fn
 	accuracy  = (tp + tn)/(tp + tn + fn + fp)
 	error = 1 - accuracy
 
@@ -133,18 +128,19 @@ def testing(weights, bias, testSet, testClasses):
 
 if __name__ == "__main__":
 	
-	filename = "Heart.csv"
+	filename = "Datasets/Heart.csv"
 	dataset = loadCSV(filename)
 
 	totalAccuracy = totalError = totalFPR = totalFNR = totalTPR = totalTNR = 0.0
 
 	for i in range(0,10):
 		trainSet, testSet, testClasses = splitDataset(dataset, i)
-		weights, bias = simplePerceptron(trainSet)
+		weights, bias, learningRate = simplePerceptron(trainSet)
 		accuracy, error, fpr, fnr, tpr, tnr = testing(weights, bias, testSet, testClasses)
-		totalAccuracy += accuracy
 
-		print accuracy
+		print "\nFold - ", i+1, "\nBias : ", "{0:.2f}".format(bias), "Learning Rate : ", "{0:.2f}".format(learningRate), "Weights : ", ["{0:0.2f}".format(j) for j in weights], "\n Accuracy : ", "{0:.2f}".format(accuracy*100)
+		
+		totalAccuracy += accuracy
 		totalError += error
 		totalTNR += tnr
 		totalTPR += tpr
