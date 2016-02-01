@@ -5,6 +5,7 @@ import copy
 
 def loadCSV(filename):
 	lines = csv.reader(open(filename, "rb"))
+	#random.shuffle(lines)
 	dataset = list(lines)
 	for i in range(len(dataset)):
 		dataset[i] = [float(x) for x in dataset[i]]
@@ -31,18 +32,12 @@ def splitDataset(dataset, foldNumber):
 
 	return [trainSet, testSet, testClasses]
 
-def simplePerceptron(trainSet):
-
-	bias = -1 * random.rand()
-	#bias = 0
-	weights = random.rand(22)
-
-	learningRate = random.rand()
+def simplePerceptron(trainSet, weights, bias, learningRate, threshold):
 
 	counter = 0
 	error  = 0 
 
-	while (counter < 1000) :
+	while (counter < 1000 or error <=0.03) :
 
 		counter += 1
 
@@ -54,22 +49,22 @@ def simplePerceptron(trainSet):
 
 			Y += dot(temp, weights)
 			
-			if Y > 0:
+			if Y > threshold:
 				Y = 1
 			else:
 				Y = 0
-
-			#print Y
 
 			error += abs(Z - Y)
 
 			for x in xrange(len(temp)):
 				weights[x] += learningRate*(Z - Y)*temp[x]
 
+			bias += learningRate*(Z-Y)
+
 		if error == 0:
 			break
 
-	return (weights, bias, learningRate)
+	return (weights)
 
 def testing(weights, bias, testSet, testClasses):
 
@@ -132,13 +127,24 @@ if __name__ == "__main__":
 	dataset = loadCSV(filename)
 
 	totalAccuracy = totalError = totalFPR = totalFNR = totalTPR = totalTNR = 0.0
+	
+	bias = 0.3
+	weights = random.rand(22)
+	total = sum(weights)
+	
+	for x in xrange(len(weights)):
+		weights[x] = weights[x]/total
+
+	learningRate = 0.4
+	threshold = 2.5
 
 	for i in range(0,10):
-		trainSet, testSet, testClasses = splitDataset(dataset, i)
-		weights, bias, learningRate = simplePerceptron(trainSet)
-		accuracy, error, fpr, fnr, tpr, tnr = testing(weights, bias, testSet, testClasses)
 
-		print "\nFold - ", i+1, "\nBias : ", "{0:.2f}".format(bias), "Learning Rate : ", "{0:.2f}".format(learningRate), "Weights : ", ["{0:0.2f}".format(j) for j in weights], "\n Accuracy : ", "{0:.2f}".format(accuracy*100)
+		trainSet, testSet, testClasses = splitDataset(dataset, i)
+		weightsNew = simplePerceptron(trainSet, weights, bias, learningRate, threshold)
+		accuracy, error, fpr, fnr, tpr, tnr = testing(weightsNew, bias, testSet, testClasses)
+
+		#print "\nFold - ", i+1, "\nBias : ", "{0:.2f}".format(bias), "Learning Rate : ", "{0:.2f}".format(learningRate), "Weights : ", ["{0:0.2f}".format(j) for j in weights], "\n Accuracy : ", "{0:.2f}".format(accuracy*100)
 		
 		totalAccuracy += accuracy
 		totalError += error
@@ -149,4 +155,4 @@ if __name__ == "__main__":
 
 	totalAccuracy /= 10
 
-	print "Accuracy : \n", totalAccuracy*100
+	print "Accuracy : ", totalAccuracy*100, "Learning Rate : ", learningRate, "Threshold : ", threshold, "Bias : ", bias
