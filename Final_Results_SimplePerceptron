@@ -1,0 +1,146 @@
+Epochs : 10
+
+Threshold = 2.0
+
+Accuracy :  76.9230769231 Learning Rate :  0.1 Threshold :  2.0 Bias :  0.0454545454545
+Accuracy :  72.6923076923 Learning Rate :  0.2 Threshold :  2.0 Bias :  0.0454545454545
+Accuracy :  62.6538461538 Learning Rate :  0.3 Threshold :  2.0 Bias :  0.0454545454545
+Accuracy :  53.1884615385 Learning Rate :  0.4 Threshold :  2.0 Bias :  0.0454545454545
+Accuracy :  47.2419230769 Learning Rate :  0.5 Threshold :  2.0 Bias :  0.0454545454545
+Accuracy :  45.8780384615 Learning Rate :  0.6 Threshold :  2.0 Bias :  0.0454545454545
+Accuracy :  43.0493423077 Learning Rate :  0.7 Threshold :  2.0 Bias :  0.0454545454545
+Accuracy :  42.7664726923 Learning Rate :  0.8 Threshold :  2.0 Bias :  0.0454545454545
+Accuracy :  41.1997241923 Learning Rate :  0.9 Threshold :  2.0 Bias :  0.0454545454545
+
+Threshold = 2.5
+
+Accuracy :  78.8461538462 	Learning Rate :  0.1 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  75.5769230769 	Learning Rate :  0.2 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  70.25 		Learning Rate :  0.3 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  63.5634615385 	Learning Rate :  0.4 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  50.9717307692 	Learning Rate :  0.5 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  51.2510192308 	Learning Rate :  0.6 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  48.5866403846 	Learning Rate :  0.7 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  46.7817409615 	Learning Rate :  0.8 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  37.7550971731 	Learning Rate :  0.9 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  39.1601251019 	Learning Rate :  1.0 	Threshold :  2.5 	Bias :  0.0454545454545
+
+Threshold = 2.8
+
+Accuracy :  80.0 		Learning Rate :  0.1 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  78.0 		Learning Rate :  0.2 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  69.7230769231 	Learning Rate :  0.3 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  59.6646153846 	Learning Rate :  0.4 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  59.428 		Learning Rate :  0.5 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  51.3274153846 	Learning Rate :  0.6 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  47.4404338462 	Learning Rate :  0.7 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  45.8978895385 	Learning Rate :  0.8 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  43.4359428 		Learning Rate :  0.9 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  40.8820558185 	Learning Rate :  1.0 	Threshold :  2.8 	Bias :  0.0454545454545
+
+Threshold = 3.5
+
+Accuracy :  80.8 		Learning Rate :  0.1 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  85.28 		Learning Rate :  0.2 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  76.528 		Learning Rate :  0.3 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  70.4528 		Learning Rate :  0.4 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  61.84528 		Learning Rate :  0.5 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  54.584528 		Learning Rate :  0.6 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  57.8584528 		Learning Rate :  0.7 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  54.98584528 	Learning Rate :  0.8 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  47.498584528 	Learning Rate :  0.9 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  39.9498584528 	Learning Rate :  1.0 	Threshold :  3.5 	Bias :  0.0454545454545
+
+Threshold : 4.8
+
+Accuracy :  80.3846153846 	Learning Rate :  0.1 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  84.9615384615 	Learning Rate :  0.2 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  82.3423076923 	Learning Rate :  0.3 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  76.3111538462 	Learning Rate :  0.4 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  76.0926538462 	Learning Rate :  0.5 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  67.22465 		Learning Rate :  0.6 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  62.8763111538 	Learning Rate :  0.7 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  53.9799388077 	Learning Rate :  0.8 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  62.3210708038 	Learning Rate :  0.9 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  56.616722465 	Learning Rate :  1.0 	Threshold :  4.8 	Bias :  0.0454545454545
+
+
+Epochs : 100
+
+Threshold = 2.5
+
+Accuracy :  77.3076923077 	Learning Rate :  0.1 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  72.7307692308 	Learning Rate :  0.2 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  65.35 		Learning Rate :  0.3 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  61.9196153846 	Learning Rate :  0.4 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  46.5765769231 	Learning Rate :  0.5 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  49.2730423077 	Learning Rate :  0.6 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  46.4657657692 	Learning Rate :  0.7 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  43.8773458077 	Learning Rate :  0.8 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  35.9261961192 	Learning Rate :  0.9 	Threshold :  2.5 	Bias :  0.0454545454545
+Accuracy :  41.6695426888 	Learning Rate :  1.0 	Threshold :  2.5 	Bias :  0.0454545454545
+
+Threshold = 2.8
+
+Accuracy :  78.4615384615 	Learning Rate :  0.1 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  75.5384615385 	Learning Rate :  0.2 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  69.4769230769 	Learning Rate :  0.3 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  55.0246153846 	Learning Rate :  0.4 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  50.5024615385 	Learning Rate :  0.5 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  48.8964 		Learning Rate :  0.6 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  44.88964 		Learning Rate :  0.7 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  41.7966563077 	Learning Rate :  0.8 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  46.1027425538 	Learning Rate :  0.9 	Threshold :  2.8 	Bias :  0.0454545454545
+Accuracy :  39.99488964 	Learning Rate :  1.0 	Threshold :  2.8 	Bias :  0.0454545454545
+
+Threshold = 3.5
+
+Accuracy :  80.3846153846 	Learning Rate :  0.1 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  81.1153846154 	Learning Rate :  0.2 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  73.8807692308 	Learning Rate :  0.3 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  67.0034615385 	Learning Rate :  0.4 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  57.0849615385 	Learning Rate :  0.5 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  51.0931115385 	Learning Rate :  0.6 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  48.1862342308 	Learning Rate :  0.7 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  48.6647772692 	Learning Rate :  0.8 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  43.3280161885 	Learning Rate :  0.9 	Threshold :  3.5 	Bias :  0.0454545454545
+Accuracy :  42.4097246958 	Learning Rate :  1.0 	Threshold :  3.5 	Bias :  0.0454545454545
+
+Threshold : 3.8
+
+Accuracy :  80.7692307692 	Learning Rate :  0.1 	Threshold :  3.8 	Bias :  0.0454545454545
+Accuracy :  81.5384615385 	Learning Rate :  0.2 	Threshold :  3.8 	Bias :  0.0454545454545
+Accuracy :  73.9230769231 	Learning Rate :  0.3 	Threshold :  3.8 	Bias :  0.0454545454545
+Accuracy :  69.7 		Learning Rate :  0.4 	Threshold :  3.8 	Bias :  0.0454545454545
+Accuracy :  61.5853846154 	Learning Rate :  0.5 	Threshold :  3.8 	Bias :  0.0454545454545
+Accuracy :  55.0046923077 	Learning Rate :  0.6 	Threshold :  3.8 	Bias :  0.0454545454545
+Accuracy :  54.3466230769 	Learning Rate :  0.7 	Threshold :  3.8 	Bias :  0.0454545454545
+Accuracy :  53.5115853846 	Learning Rate :  0.8 	Threshold :  3.8 	Bias :  0.0454545454545
+Accuracy :  54.1973123846 	Learning Rate :  0.9 	Threshold :  3.8 	Bias :  0.0454545454545
+Accuracy :  43.1120389308 	Learning Rate :  1.0 	Threshold :  3.8 	Bias :  0.0454545454545
+
+Threshold : 4.2
+
+Accuracy :  80.7692307692 	Learning Rate :  0.1 	Threshold :  4.2 	Bias :  0.0454545454545
+Accuracy :  82.6923076923 	Learning Rate :  0.2 	Threshold :  4.2 	Bias :  0.0454545454545
+Accuracy :  78.2692307692 	Learning Rate :  0.3 	Threshold :  4.2 	Bias :  0.0454545454545
+Accuracy :  72.4423076923 	Learning Rate :  0.4 	Threshold :  4.2 	Bias :  0.0454545454545
+Accuracy :  66.8596153846 	Learning Rate :  0.5 	Threshold :  4.2 	Bias :  0.0454545454545
+Accuracy :  56.6859615385 	Learning Rate :  0.6 	Threshold :  4.2 	Bias :  0.0454545454545
+Accuracy :  54.1301346154 	Learning Rate :  0.7 	Threshold :  4.2 	Bias :  0.0454545454545
+Accuracy :  55.7976288462 	Learning Rate :  0.8 	Threshold :  4.2 	Bias :  0.0454545454545
+Accuracy :  46.7336090385 	Learning Rate :  0.9 	Threshold :  4.2 	Bias :  0.0454545454545
+Accuracy :  51.2118224423 	Learning Rate :  1.0 	Threshold :  4.2 	Bias :  0.0454545454545
+
+Threshold : 4.8
+
+Accuracy :  80.7692307692 	Learning Rate :  0.1 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  83.0769230769 	Learning Rate :  0.2 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  78.6923076923 	Learning Rate :  0.3 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  72.8692307692 	Learning Rate :  0.4 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  68.8253846154 	Learning Rate :  0.5 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  61.4979230769 	Learning Rate :  0.6 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  59.6113307692 	Learning Rate :  0.7 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  53.6534407692 	Learning Rate :  0.8 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  52.6730363846 	Learning Rate :  0.9 	Threshold :  4.8 	Bias :  0.0454545454545
+Accuracy :  45.6519190231 	Learning Rate :  1.0 	Threshold :  4.8 	Bias :  0.0454545454545

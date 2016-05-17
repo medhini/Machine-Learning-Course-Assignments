@@ -1,7 +1,8 @@
 import csv
-from numpy import random, dot
+from numpy import random, dot, array
 import math
 import copy
+from decimal import *
 
 def loadCSV(filename):
 	lines = csv.reader(open(filename, "rb"))
@@ -25,29 +26,27 @@ def splitDataset(dataset, foldNumber):
 		else:
 			for j in range(0, foldSize):
 				temp = copy.deepcopy(dataset[i * foldSize + j])
-				testClasses.append(temp.pop(0))
 				testSet.append(temp)
 
 	trainSet.extend(dataset[260:267])
 
-	return [trainSet, testSet, testClasses]
+	return [trainSet, testSet]
 
 def simplePerceptron(trainSet, weights, bias, learningRate, threshold):
 
 	counter = 0
-	error  = 0 
 
-	while (counter < 1000 or error <=0.03) :
+	while (counter < 10) :
 
+		error = 0
 		counter += 1
 
 		for i in range(len(trainSet)):
 
-			temp = copy.deepcopy(trainSet[i])
-			Z = temp.pop(0)
+			Z = trainSet[i][0]
 			Y = bias
 
-			Y += dot(temp, weights)
+			Y += dot(trainSet[i][1:], weights)
 			
 			if Y > threshold:
 				Y = 1
@@ -56,44 +55,40 @@ def simplePerceptron(trainSet, weights, bias, learningRate, threshold):
 
 			error += abs(Z - Y)
 
-			for x in xrange(len(temp)):
-				weights[x] += learningRate*(Z - Y)*temp[x]
+			for x in xrange(len(trainSet[i][1:])):
+				weights[x] += learningRate*(Z - Y)*trainSet[i][x + 1]
 
-			bias += learningRate*(Z-Y)
+			bias += learningRate*(Z - Y)
 
-		if error == 0:
+		if error < 0.03:
 			break
-
 	return (weights)
 
-def testing(weights, bias, testSet, testClasses):
+def testing(weights, bias, testSet, threshold):
 
 	tp = tn = fp = fn = 0.0
 	for i in range(len(testSet)):
 
-		Z = testClasses[i]		
+		Z = testSet[i][0]	
 		Y = bias
 
-		Y += dot(testSet[i], weights)
+		Y += dot(testSet[i][1:], weights)
 
-		if Y > 0:
+		if Y > threshold:
 			Y = 0
 		else:
 			Y = 1
 
-		if Z == Y and Y == 0 :
-			tn += 1
-
-		if Z == Y and Y == 1 :
+		if Z == Y:
 			tp += 1
 
-		if Z != Y and Y == 1 :
+		if Z != Y:
 			fp += 1
-
-		if Z != Y and Y == 0 :
-			fn += 1
 	
-	print tn, tp, fp, fn
+	#print tn, tp, fp, fn
+	tn = len(testSet) - fp - 1
+	fn = len(testSet) - tp - 1
+
 	accuracy  = (tp + tn)/(tp + tn + fn + fp)
 	error = 1 - accuracy
 
@@ -126,33 +121,42 @@ if __name__ == "__main__":
 	filename = "Datasets/Heart.csv"
 	dataset = loadCSV(filename)
 
-	totalAccuracy = totalError = totalFPR = totalFNR = totalTPR = totalTNR = 0.0
+	# total = sum(weights)
 	
-	bias = 0.3
-	weights = random.rand(22)
-	total = sum(weights)
-	
-	for x in xrange(len(weights)):
-		weights[x] = weights[x]/total
+	# for x in xrange(len(weights)):
+	# weights[x] = weights[x]/total
 
-	learningRate = 0.4
-	threshold = 2.5
+	for j in range(1, 11):
 
-	for i in range(0,10):
+		totalAccuracy = totalError = totalFPR = totalFNR = totalTPR = totalTNR = 0.0
 
-		trainSet, testSet, testClasses = splitDataset(dataset, i)
-		weightsNew = simplePerceptron(trainSet, weights, bias, learningRate, threshold)
-		accuracy, error, fpr, fnr, tpr, tnr = testing(weightsNew, bias, testSet, testClasses)
+		getcontext().prec = 4
+		bias = float(1)/float(22)
+		weights =  array([float(1)/float(22)]*22)
+		learningRate = float(j) * 0.1
 
-		#print "\nFold - ", i+1, "\nBias : ", "{0:.2f}".format(bias), "Learning Rate : ", "{0:.2f}".format(learningRate), "Weights : ", ["{0:0.2f}".format(j) for j in weights], "\n Accuracy : ", "{0:.2f}".format(accuracy*100)
-		
-		totalAccuracy += accuracy
-		totalError += error
-		totalTNR += tnr
-		totalTPR += tpr
-		totalFNR += fnr
-		totalFPR += fpr
+		threshold = 3.2
 
-	totalAccuracy /= 10
+		for i in range(0,10):
 
-	print "Accuracy : ", totalAccuracy*100, "Learning Rate : ", learningRate, "Threshold : ", threshold, "Bias : ", bias
+			trainSet, testSet = splitDataset(dataset, i)
+			weightsNew = simplePerceptron(trainSet, weights, bias, learningRate, threshold)
+			accuracy, error, fpr, fnr, tpr, tnr = testing(weightsNew, bias, testSet, threshold)
+
+			#print "\nFold - ", i+1, "\nBias : ", "{0:.2f}".format(bias), "Learning Rate : ", "{0:.2f}".format(learningRate), "Weights : ", ["{0:0.2f}".format(j) for j in weights], "\n Accuracy : ", "{0:.2f}".format(accuracy*100)
+			
+			totalAccuracy += accuracy
+			totalError += error
+			totalTNR += tnr
+			totalTPR += tpr
+			totalFNR += fnr
+			totalFPR += fpr
+
+		totalAccuracy /= 10
+		totalTNR /= 10
+		totalFPR /= 10
+		totalTPR /= 10
+		totalFNR /= 10
+
+		print "Accuracy : ", totalAccuracy*100, "\tLearning Rate : ", learningRate, "\tThreshold : ", threshold, "\tBias : ", bias
+		print "TPR : ", totalTPR*100, "TNR : ", totalTNR*100, "\nFPR :", totalFPR*100, "FNR : ", totalFNR*100
