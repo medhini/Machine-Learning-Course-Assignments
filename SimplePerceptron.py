@@ -55,7 +55,8 @@ def simplePerceptron(trainSet, weights, bias, learningRate, threshold):
 
 			error += abs(Z - Y)
 
-			weights += learningRate*(Z - Y)
+			for x in xrange(len(trainSet[i][1:])):
+-				weights[x] += learningRate*(Z - Y)*trainSet[i][x + 1]
 
 			bias += learningRate*(Z - Y)
 
